@@ -236,7 +236,7 @@ services:
     hostname: php83
     networks:
       app_net:
-        ipv4_address: 172.16.238.211
+        ipv4_address: 172.16.238.212
     volumes:
       # Specific volumes
       - ${DEVILBOX_PATH}/cfg/php-ini-8.3:/etc/php-custom.d:ro${MOUNT_OPTIONS}

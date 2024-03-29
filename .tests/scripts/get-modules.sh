@@ -12,17 +12,18 @@ DVLBOX_PATH="$( cd "${SCRIPT_PATH}/../.." && pwd -P )"
 # shellcheck disable=SC1090
 . "${SCRIPT_PATH}/.lib.sh"
 
-RETRIES=10
+RETRIES=1
 
 
 # -------------------------------------------------------------------------------------------------
 # FUNCTIONS
 # -------------------------------------------------------------------------------------------------
 
-PHP_TAG="$( grep 'johnea/php' "${DVLBOX_PATH}/docker-compose.yml" | sed 's/^.*-work-//g' )"
-PHP_BRANCH="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
-PHP_MOD="$( run "curl -sS 'https://raw.githubusercontent.com/john-ea/docker-php-fpm/${PHP_BRANCH}/doc/php-modules.md'" "${RETRIES}" )";
-
+PHP_TAG="$( grep 'johnea/php' "${DVLBOX_PATH}/docker-compose.yml" | sed -E 's/^.*-work[-]?//g')"
+if [ -z "${PHP_TAG}" ]; then
+	PHP_TAG="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
+fi
+PHP_MOD="$( run "curl -sS 'https://raw.githubusercontent.com/john-ea/docker-php-fpm/${PHP_TAG}/doc/php-modules.md'" "${RETRIES}" )";
 
 get_modules() {
 	local php_version="${1}"

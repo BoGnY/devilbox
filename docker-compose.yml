@@ -100,7 +100,7 @@ services:
   # PHP
   # ------------------------------------------------------------
   php:
-    image: devilbox/php-fpm:${PHP_SERVER}-work-0.151
+    image: johnea/php-fpm:${PHP_SERVER}-work
     hostname: php
 
     ##

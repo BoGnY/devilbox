@@ -41,12 +41,12 @@ VHOST="${1}"
 # The following ensures to download the module test directory
 
 # Where to download from
-TEST_REPO="https://github.com/devilbox/docker-php-fpm"
+TEST_REPO="https://github.com/john-ea/docker-php-fpm"
 TEST_PATH="tests/mods/modules"
 
 # Get current PHP_FPM git tag or branch
 PHP_FPM_GIT_SLUG="$( \
-	grep -E '^[[:space:]]+image:[[:space:]]+devilbox/php-fpm:' "${DVLBOX_PATH}/docker-compose.yml" \
+	grep -E '^[[:space:]]+image:[[:space:]]+johnea/php-fpm:' "${DVLBOX_PATH}/docker-compose.yml" \
 	| perl -p -e 's/.*(base|mods|prod|work|)-//g'
 )"
 
@@ -56,7 +56,10 @@ if [[ ${PHP_FPM_GIT_SLUG} =~ ^[.0-9]+$ ]]; then
 else
 	SVN_PATH="${TEST_REPO}/branches/${PHP_FPM_GIT_SLUG}/${TEST_PATH}"
 fi
-
+if [ -z "${PHP_FPM_GIT_SLUG}" ]; then
+	PHP_BRANCH="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
+	SVN_PATH="${TEST_REPO}/branches/${PHP_BRANCH}/${TEST_PATH}"
+fi
 # Cleanup and fetch data
 run "docker-compose exec -T --user devilbox php rm -rf /shared/httpd/${VHOST} || true" "${RETRIES}" "${DVLBOX_PATH}"
 run "docker-compose exec -T --user devilbox php mkdir -p /shared/httpd/${VHOST}" "${RETRIES}" "${DVLBOX_PATH}"

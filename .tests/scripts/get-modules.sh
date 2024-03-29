@@ -19,8 +19,9 @@ RETRIES=10
 # FUNCTIONS
 # -------------------------------------------------------------------------------------------------
 
-PHP_TAG="$( grep 'devilbox/php' "${DVLBOX_PATH}/docker-compose.yml" | sed 's/^.*-work-//g' )"
-PHP_MOD="$( run "curl -sS 'https://raw.githubusercontent.com/devilbox/docker-php-fpm/${PHP_TAG}/doc/php-modules.md'" "${RETRIES}" )";
+PHP_TAG="$( grep 'johnea/php' "${DVLBOX_PATH}/docker-compose.yml" | sed 's/^.*-work-//g' )"
+PHP_BRANCH="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
+PHP_MOD="$( run "curl -sS 'https://raw.githubusercontent.com/john-ea/docker-php-fpm/${PHP_BRANCH}/doc/php-modules.md'" "${RETRIES}" )";
 
 
 get_modules() {

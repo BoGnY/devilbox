@@ -49,16 +49,11 @@ PHP_FPM_GIT_SLUG="$( \
 	| perl -p -e 's/.*(base|mods|prod|work|-)//g'
 )"
 
-# Distinguish between tag or branch and build SVN path
-if [[ ${PHP_FPM_GIT_SLUG} =~ ^[.0-9]+$ ]]; then
-	SVN_PATH="${TEST_REPO}/tags/${PHP_FPM_GIT_SLUG}/${TEST_PATH}"
-else
-	SVN_PATH="${TEST_REPO}/branches/${PHP_FPM_GIT_SLUG}/${TEST_PATH}"
-fi
 if [ -z "${PHP_FPM_GIT_SLUG}" ]; then
-	PHP_BRANCH="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
-	SVN_PATH="${TEST_REPO}/branches/${PHP_BRANCH}/${TEST_PATH}"
+	PHP_FPM_GIT_SLUG="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
 fi
+SVN_PATH="${TEST_REPO}/tree/${PHP_FPM_GIT_SLUG}/${TEST_PATH}"
+
 # Cleanup and fetch data
 run "docker-compose exec -T --user devilbox php rm -rf /shared/httpd/${VHOST} || true" "${RETRIES}" "${DVLBOX_PATH}"
 run "docker-compose exec -T --user devilbox php mkdir -p /shared/httpd/${VHOST}" "${RETRIES}" "${DVLBOX_PATH}"

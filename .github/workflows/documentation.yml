@@ -45,10 +45,10 @@ jobs:
       # Checkout repository
       # ------------------------------------------------------------
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
 
       - name: Check documentation
-        uses: cytopia/shell-command-retry-action@v0.1.3
+        uses: john-ea/devilbox-actions/.github/actions/shell-command-retry-action@master
         with:
           retries: 5
           workdir: "${{ github.workspace }}/docs/"

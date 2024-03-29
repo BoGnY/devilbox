@@ -43,11 +43,10 @@ VHOST="${1}"
 # Where to download from
 TEST_REPO="https://github.com/john-ea/docker-php-fpm"
 TEST_PATH="tests/mods/modules"
-
 # Get current PHP_FPM git tag or branch
 PHP_FPM_GIT_SLUG="$( \
 	grep -E '^[[:space:]]+image:[[:space:]]+johnea/php-fpm:' "${DVLBOX_PATH}/docker-compose.yml" \
-	| perl -p -e 's/.*(base|mods|prod|work|)-//g'
+	| perl -p -e 's/.*(base|mods|prod|work|-)//g'
 )"
 
 # Distinguish between tag or branch and build SVN path

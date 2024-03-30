@@ -578,10 +578,6 @@ All values are already available in the ``.env`` file and just need to be commen
 
    host> grep PHP_SERVER .env
 
-   #PHP_SERVER=php-fpm-5.2
-   #PHP_SERVER=php-fpm-5.3
-   #PHP_SERVER=php-fpm-5.4
-   #PHP_SERVER=php-fpm-5.5
    #PHP_SERVER=php-fpm-5.6
    #PHP_SERVER=php-fpm-7.0
    #PHP_SERVER=php-fpm-7.1

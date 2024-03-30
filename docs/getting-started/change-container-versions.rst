@@ -81,10 +81,6 @@ It will look something like this:
    :caption: .env
    :emphasize-lines: 7
 
-   #PHP_SERVER=5.2
-   #PHP_SERVER=5.3
-   #PHP_SERVER=5.4
-   #PHP_SERVER=5.5
    #PHP_SERVER=5.6
    #PHP_SERVER=7.0
    PHP_SERVER=7.1
@@ -109,10 +105,6 @@ In order to enable PHP 5.5, you would change the ``.env`` file like this:
    :caption: .env
    :emphasize-lines: 4
 
-   #PHP_SERVER=5.2
-   #PHP_SERVER=5.3
-   #PHP_SERVER=5.4
-   PHP_SERVER=5.5
    #PHP_SERVER=5.6
    #PHP_SERVER=7.0
    #PHP_SERVER=7.1
@@ -232,10 +224,6 @@ Consider this ``.env`` file:
    :caption: .env
    :emphasize-lines: 4,6
 
-   #PHP_SERVER=5.2
-   #PHP_SERVER=5.3
-   #PHP_SERVER=5.4
-   PHP_SERVER=5.5
    #PHP_SERVER=5.6
    PHP_SERVER=7.0
    #PHP_SERVER=7.1

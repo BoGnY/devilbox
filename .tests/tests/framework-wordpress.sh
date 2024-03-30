@@ -63,20 +63,10 @@ run "docker-compose exec --user devilbox -T php bash -c ' \
 	&& ln -sf wordpress /shared/httpd/${VHOST}/htdocs'" \
 	"${RETRIES}" "${DVLBOX_PATH}"
 
-# Switch to an earlier Wordpress version for older PHP versions
-if [ "${PHP_VERSION}" = "5.3" ] || [ "${PHP_VERSION}" = "5.4" ] || [ "${PHP_VERSION}" = "5.5" ]; then
-	run "docker-compose exec --user devilbox -T php bash -c ' \
-		cd /shared/httpd/${VHOST}/wordpress \
-		&& git checkout 5.1.3'" \
+run "docker-compose exec --user devilbox -T php bash -c ' \
+	cd /shared/httpd/${VHOST}/wordpress \
+	&& git checkout \"\$(git tag | sort -V | tail -1)\"'" \
 	"${RETRIES}" "${DVLBOX_PATH}"
-# Checkout latest git tag
-else
-	run "docker-compose exec --user devilbox -T php bash -c ' \
-		cd /shared/httpd/${VHOST}/wordpress \
-		&& git checkout \"\$(git tag | sort -V | tail -1)\"'" \
-	"${RETRIES}" "${DVLBOX_PATH}"
-
-fi
 
 # Setup Database
 run "docker-compose exec --user devilbox -T php mysql -u root -h mysql --password=\"${MYSQL_ROOT_PASSWORD}\" -e \"DROP DATABASE IF EXISTS ${DB_NAME}; CREATE DATABASE ${DB_NAME};\"" "${RETRIES}" "${DVLBOX_PATH}"

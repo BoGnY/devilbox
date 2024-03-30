@@ -13,7 +13,6 @@ only make the settings for a specific project.
 
 | Web server     | Example template               | Template name  |
 |----------------|--------------------------------|----------------|
-| Apache 2.2     |  `apache22.yml-example-vhost`  | `apache22.yml` |
 | Apache 2.4     |  `apache24.yml-example-vhost`  | `apache24.yml` |
 | Nginx stable   |  `nginx.yml-example-vhost`     | `nginx.yml`    |
 | Nginx mainline |  `nginx.yml-example-vhost`     | `nginx.yml`    |
@@ -26,7 +25,6 @@ working. Use them only for per project settings!**
 
 | Web server     | Example template               | Template name  |
 |----------------|--------------------------------|----------------|
-| Apache 2.2     |  `apache22.yml-example-rproxy` | `apache22.yml` |
 | Apache 2.4     |  `apache24.yml-example-rproxy` | `apache24.yml` |
 | Nginx stable   |  `nginx.yml-example-rproxy`    | `nginx.yml`    |
 | Nginx mainline |  `nginx.yml-example-rproxy`    | `nginx.yml`    |

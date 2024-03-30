@@ -757,10 +757,7 @@ CUSTOMIZATIONS=0
 HOST_PATH_HTTPD_DATADIR="$( get_path "$( get_env_value "HOST_PATH_HTTPD_DATADIR" )" )"
 HTTPD_TEMPLATE_DIR="$( get_env_value "HTTPD_TEMPLATE_DIR" )"
 while read -r project; do
-	if [ -f "${project}/${HTTPD_TEMPLATE_DIR}/apache22.yml" ]; then
-		log_note "[vhost-gen]  Custom Apache 2.2 vhost-gen config present in: ${project}/"
-		CUSTOMIZATIONS=$(( CUSTOMIZATIONS + 1 ))
-	elif [ -f "${project}/${HTTPD_TEMPLATE_DIR}/apache24.yml" ]; then
+  if [ -f "${project}/${HTTPD_TEMPLATE_DIR}/apache24.yml" ]; then
 		log_note "[vhost-gen]  Custom Apache 2.4 vhost-gen config present in: ${project}/"
 		CUSTOMIZATIONS=$(( CUSTOMIZATIONS + 1 ))
 	elif [ -f "${project}/${HTTPD_TEMPLATE_DIR}/nginx.yml" ]; then

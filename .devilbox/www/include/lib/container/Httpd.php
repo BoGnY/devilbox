@@ -181,9 +181,7 @@ class Httpd extends BaseClass implements BaseInterface
 		}
 		$version = $this->getVersion();
 
-		if (preg_match('/^2\.2.*/', $version)) {
-			return 'apache22.yml';
-		} elseif (preg_match('/^2\.4.*/', $version)) {
+		if (preg_match('/^2\.4.*/', $version)) {
 			return 'apache24.yml';
 		} else {
 			return false;

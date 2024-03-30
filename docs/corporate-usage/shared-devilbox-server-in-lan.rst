@@ -185,7 +185,7 @@ vendor router which has a web interface. Generally speaking, you need to find th
 in its web interface and add the Devilbox DNS server as the first in the list (``192.168.0.12``).
 
 .. seealso::
-   * `Change DNS server in Fritzbox`_
+   * `Change DNS server in Fritzbox`
 
 
 Add hosts entries for every project

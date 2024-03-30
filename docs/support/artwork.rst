@@ -7,8 +7,6 @@ Artwork
 The Devilbox provides `official logos and banners <https://github.com/devilbox/artwork>`_
 to be used for articles, blogs and others by the following license:
 
-.. image:: https://camo.githubusercontent.com/e170e276291254896665fa8f612b99fe5b7dd005/68747470733a2f2f692e6372656174697665636f6d6d6f6e732e6f72672f6c2f62792d73612f342e302f38387833312e706e67
-
 Images are available as opaque and transparent versions:
 
 +-------------------+------------------+---------------+

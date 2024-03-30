@@ -52,9 +52,11 @@ PHP_FPM_GIT_SLUG="$( \
 if [ -z "${PHP_FPM_GIT_SLUG}" ]; then
 	PHP_FPM_GIT_SLUG="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
 fi
-SVN_PATH="${TEST_REPO}/tree/${PHP_FPM_GIT_SLUG}/${TEST_PATH}"
+#https://github.blog/2023-01-20-sunsetting-subversion-support/
+CLONE_PATH="/shared/httpd/${VHOST}/htdocs"
+GIT_CLONE_CMD="git clone --depth=1 --single-branch --branch=${PHP_FPM_GIT_SLUG} ${TEST_REPO} ${PATH} && cd ${PATH} && git sparse-checkout set --no-cone ${TEST_PATH}"
 
 # Cleanup and fetch data
-run "docker-compose exec -T --user devilbox php rm -rf /shared/httpd/${VHOST} || true" "${RETRIES}" "${DVLBOX_PATH}"
-run "docker-compose exec -T --user devilbox php mkdir -p /shared/httpd/${VHOST}" "${RETRIES}" "${DVLBOX_PATH}"
-run "docker-compose exec -T --user devilbox php svn checkout ${SVN_PATH} /shared/httpd/${VHOST}/htdocs" "${RETRIES}" "${DVLBOX_PATH}"
+run "docker compose exec -T --user devilbox php rm -rf /shared/httpd/${VHOST} || true" "${RETRIES}" "${DVLBOX_PATH}"
+run "docker compose exec -T --user devilbox php mkdir -p /shared/httpd/${VHOST}" "${RETRIES}" "${DVLBOX_PATH}"
+run "docker compose exec -T --user devilbox php bash -c \"${GIT_CLONE_CMD}\"" "${RETRIES}" "${DVLBOX_PATH}"

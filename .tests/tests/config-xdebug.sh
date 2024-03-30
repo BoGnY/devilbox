@@ -82,7 +82,7 @@ fi
 ### Xdebug autostart disabled
 ###
 printf "[TEST] Xdebug autostart disabled"
-if [ [ "${PHP_VERSION}" = "5.6" ] || [ "${PHP_VERSION}" = "7.0" ] || [ "${PHP_VERSION}" = "7.1" ]; then
+if [ "${PHP_VERSION}" = "5.6" ] || [ "${PHP_VERSION}" = "7.0" ] || [ "${PHP_VERSION}" = "7.1" ]; then
 	if  ! run "curl -sS --fail 'http://localhost:${HOST_PORT_HTTPD}/info_php.php' | tac | tac | grep 'xdebug.remote_autostart' | grep -E 'Off.+Off' >/dev/null" "${RETRIES}" "" "0"; then
 		printf "\\r[FAIL] Xdebug autostart disabled\\n"
 		run "curl 'http://localhost:${HOST_PORT_HTTPD}/info_php.php' | grep 'xdebug.remote_autostart' || true"

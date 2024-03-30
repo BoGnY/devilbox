@@ -78,20 +78,18 @@ Copy vhost-gen templates
 The reverse vhost-gen templates are available in ``cfg/vhost-gen``:
 
 .. code-block:: bash
-   :emphasize-lines: 4,6,8
+   :emphasize-lines: 4,6
 
    host> tree -L 1 cfg/vhost-gen/
 
    cfg/vhost-gen/
-   ├── apache22.yml-example-rproxy
-   ├── apache22.yml-example-vhost
    ├── apache24.yml-example-rproxy
    ├── apache24.yml-example-vhost
    ├── nginx.yml-example-rproxy
    ├── nginx.yml-example-vhost
    └── README.md
 
-   0 directories, 7 files
+   0 directories, 5 files
 
 For this example we will copy all ``*-example-rproxy`` files into ``/shared/httpd/my-python/.devilbox``
 to ensure this will work with all web servers.
@@ -99,7 +97,6 @@ to ensure this will work with all web servers.
 .. code-block:: bash
 
    host> cd /path/to/devilbox
-   host> cp cfg/vhost-gen/apache22.yml-example-rproxy data/www/my-python/.devilbox/apache22.yml
    host> cp cfg/vhost-gen/apache24.yml-example-rproxy data/www/my-python/.devilbox/apache24.yml
    host> cp cfg/vhost-gen/nginx.yml-example-rproxy data/www/my-python/.devilbox/nginx.yml
 
@@ -110,43 +107,6 @@ Adjust port
 By default, all vhost-gen templates will forward requests to port ``8000`` into the PHP container.
 Our current example however uses port ``3000`` and host ``python``, so we must change that accordingly for all three
 templates.
-
-Adjust Apache 2.2 template
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Open the ``apache22.yml`` vhost-gen template in your project:
-
-.. code-block:: bash
-
-   host> cd /path/to/devilbox
-   host> vi data/www/my-python/.devilbox/apache22.yml
-
-Find the two lines with ``ProxyPass`` and ``ProxyPassReverse`` and change the port from ``8000``
-to ``3000`` and host ``php`` to ``python``:
-
-.. code-block:: yaml
-   :caption: data/www/my-python/.devilbox/apache22.yml
-   :emphasize-lines: 16,17
-
-   # ... more lines above ... #
-
-   ###
-   ### Basic vHost skeleton
-   ###
-   vhost: |
-     <VirtualHost __DEFAULT_VHOST__:__PORT__>
-         ServerName   __VHOST_NAME__
-
-         CustomLog  "__ACCESS_LOG__" combined
-         ErrorLog   "__ERROR_LOG__"
-
-         # Reverse Proxy definition (Ensure to adjust the port, currently '8000')
-         ProxyRequests On
-         ProxyPreserveHost On
-         ProxyPass / http://python:3000/
-         ProxyPassReverse / http://python:3000/
-
-   # ... more lines below ... #
 
 Adjust Apache 2.4 template
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

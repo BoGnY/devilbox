@@ -26,7 +26,7 @@ Configure Apache
 ================
 
 All settings that usually go into the main ``httpd.conf`` or ``apache2.conf`` configuration file
-can be overwritten or customized separately for Apache 2.2 and Apache 2.4.
+can be overwritten or customized separately for Apache 2.4.
 
 .. seealso:: :ref:`apache_conf`
 

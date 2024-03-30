@@ -53,7 +53,6 @@ fi
 ###
 TLD_SUFFIX="$( "${SCRIPT_PATH}/../scripts/env-getvar.sh" "TLD_SUFFIX" )"
 HTTPD_DOCROOT_DIR="$( "${SCRIPT_PATH}/../scripts/env-getvar.sh" "HTTPD_DOCROOT_DIR" )"
-HTTPD_VERSION="$( "${SCRIPT_PATH}/../scripts/env-getvar.sh" "HTTPD_SERVER" )"
 
 
 ###

@@ -45,20 +45,18 @@ All template files ending by ``-example-vhost`` can be used to customize a norma
 virtual host.
 
 .. code-block:: bash
-   :emphasize-lines: 5,7,9
+   :emphasize-lines: 5,7
 
    host> tree -L 1 cfg/vhost-gen/
 
    cfg/vhost-gen/
-   ├── apache22.yml-example-rproxy
-   ├── apache22.yml-example-vhost
    ├── apache24.yml-example-rproxy
    ├── apache24.yml-example-vhost
    ├── nginx.yml-example-rproxy
    ├── nginx.yml-example-vhost
    └── README.md
 
-   0 directories, 7 files
+   0 directories, 5 files
 
 Reverse proxy
 ^^^^^^^^^^^^^
@@ -67,20 +65,18 @@ All template files ending by ``-example-rproxy`` can be used to create a reverse
 project.
 
 .. code-block:: bash
-   :emphasize-lines: 4,6,8
+   :emphasize-lines: 4,6
 
    host> tree -L 1 cfg/vhost-gen/
 
    cfg/vhost-gen/
-   ├── apache22.yml-example-rproxy
-   ├── apache22.yml-example-vhost
    ├── apache24.yml-example-rproxy
    ├── apache24.yml-example-vhost
    ├── nginx.yml-example-rproxy
    ├── nginx.yml-example-vhost
    └── README.md
 
-   0 directories, 7 files
+   0 directories, 5 files
 
 Template sections
 -----------------
@@ -106,14 +102,6 @@ Virtual host Templates
 ======================
 
 These templates can be used to alter the behaviour of the vhost on a per project base or globally.
-
-Apache 2.2 template
--------------------
-
-.. literalinclude:: ../../cfg/vhost-gen/apache22.yml-example-vhost
-   :caption: apache22.yml-example-vhost
-   :language: yaml
-
 
 Apache 2.4 template
 -------------------
@@ -144,15 +132,6 @@ useful if you use NodeJs applications for example.
    everything else will work as already defined. So you simply need to copy those files into
    your project directory. Lines that need to be changed are marked below. The currently set default
    listening port is ``8000``.
-
-Apache 2.2 template
--------------------
-
-.. literalinclude:: ../../cfg/vhost-gen/apache22.yml-example-rproxy
-   :caption: apache22.yml-example-rproxy
-   :language: yaml
-   :emphasize-lines: 51,52
-
 
 Apache 2.4 template
 -------------------

@@ -6,7 +6,7 @@
 apache.conf
 ***********
 
-Apache 2.2 and Apache 2.4 both come with their default vendor configuration. This might not be the
+Apache 2.4 both come with their default vendor configuration. This might not be the
 ideal setup for some people, so you have the chance to change any of those settings, by supplying
 custom configurations.
 
@@ -38,7 +38,6 @@ See the directory structure for Apache configuration directories inside ``./cfg/
 
    host> ls -l path/to/devilbox/cfg/ | grep 'apache'
 
-   drwxr-xr-x  2 cytopia cytopia 4096 Mar  5 21:53 apache-2.2/
    drwxr-xr-x  2 cytopia cytopia 4096 Mar  5 21:53 apache-2.4/
 
 Customization is achieved by placing a file into ``cfg/apache-X.X/`` (where ``X.X`` stands for
@@ -53,44 +52,6 @@ In order for the changes to be applied, you will have to restart the Devilbox.
 
 Examples
 ========
-
-Adjust KeepAlive settings for Apache 2.2
-----------------------------------------
-
-The following examples shows you how to change the
-`KeepAlive <https://httpd.apache.org/docs/2.2/mod/core.html#keepalive>`_, the
-`MaxKeepAliveRequests <https://httpd.apache.org/docs/2.2/mod/core.html#maxkeepaliverequests>`_
-as well as the
-`KeepAliveTimeout <https://httpd.apache.org/docs/2.2/mod/core.html#keepalivetimeout>`_ values of
-Apache 2.2.
-
-.. code-block:: bash
-
-   # Navigate to the Devilbox directory
-   host> cd path/to/devilbox
-
-   # Navigate to Apache 2.2 config directory
-   host> cd cfg/apache-2.2
-
-   # Create new conf file
-   host> touch keep_alive.conf
-
-Now add the following content to the file:
-
-.. code-block:: ini
-   :caption: keep_alive.conf
-
-   KeepAlive On
-   KeepAliveTimeout 10
-   MaxKeepAliveRequests 100
-
-In order to apply the changes you need to restart the Devilbox.
-
-.. note::
-   The above is just an example demonstration, you probably need other values for your setup.
-   So make sure to understand how to configure Apache, if you are going to change any of those
-   settings.
-
 
 Limit HTTP headers and GET size for Apache 2.4
 ----------------------------------------------

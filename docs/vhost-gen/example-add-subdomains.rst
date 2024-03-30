@@ -190,9 +190,7 @@ By having done all prerequisite, your project should be available under http://m
 Now you are all set and we can dive into the actual configuration.
 
 
-.. _tutorial_adding_sub_domains_apache_22:
-
-Apache 2.2
+Apache 2.4
 ----------
 
 Adding ``www`` sub domain
@@ -210,15 +208,15 @@ See here how to do that for Linux, MacOS or Windows:
 DNS is in place, however when you visit http://www.my-project-1.loc, you will end up seeing the
 Devilbox intranet, because this is the default host when no match has been found.
 
-Step 2: Adjust apache22.yml
+Step 2: Adjust apache24.yml
 """""""""""""""""""""""""""
 
-Next you will have to adjust the Apache 2.2 vhost configuration template. The current default
+Next you will have to adjust the Apache 2.4 vhost configuration template. The current default
 template looks similar to the one shown below (**Note:** Only the ``vhost:`` sub section is shown
 here).
 
 .. code-block:: yaml
-   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache22.yml
+   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache24.yml
    :emphasize-lines: 3
 
    vhost: |
@@ -241,7 +239,7 @@ here).
 All you will have to do, is to add a``ServerAlias`` directive:
 
 .. code-block:: yaml
-   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache22.yml
+   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache24.yml
    :emphasize-lines: 3,4
 
    vhost: |
@@ -287,15 +285,15 @@ See here how to do that for Linux, MacOS or Windows:
 This however is not really convenient. If you have basically infinite sub domains (via catch-all),
 you should consider using Auto-DNS instead: :ref:`setup_auto_dns`.
 
-Step 2: Adjust apache22.yml
+Step 2: Adjust apache24.yml
 """""""""""""""""""""""""""
 
-Next you will have to adjust the Apache 2.2 vhost configuration template. The current default
+Next you will have to adjust the Apache 2.4 vhost configuration template. The current default
 template looks similar to the one shown below (**Note:** Only the ``vhost:`` sub section is shown
 here).
 
 .. code-block:: yaml
-   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache22.yml
+   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache24.yml
    :emphasize-lines: 3
 
    vhost: |
@@ -318,7 +316,7 @@ here).
 All you will have to do, is to add a ``ServerAlias`` directive which does catch-all:
 
 .. code-block:: yaml
-   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache22.yml
+   :caption: /home/user/devilbox/data/www/project-1/.devilbox/apache24.yml
    :emphasize-lines: 3,4
 
    vhost: |
@@ -344,15 +342,6 @@ Step 3: Apply new changes
 
 The **last step** is to actually to apply those changes. This is equal for all web servers.
 Go to :ref:`tutorial_adding_sub_domains_apply_changes` and follow the steps.
-
-
-Apache 2.4
-----------
-
-The procedure for Apache 2.4 is exactly the same as for Apache 2.2, even the syntax is identical.
-The only difference is that you need to adjust ``apache24.yml`` instead of ``apache22.yml``.
-
-Just go up one section: :ref:`tutorial_adding_sub_domains_apache_22`
 
 
 Nginx

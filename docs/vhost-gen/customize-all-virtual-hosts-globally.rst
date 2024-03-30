@@ -36,8 +36,6 @@ filename.
 +----------------+--------------------------------+------------------+
 | Web server     | Example template               | Template name    |
 +================+================================+==================+
-| Apache 2.2     | ``apache22.yml-example-vhost`` | ``apache22.yml`` |
-+----------------+--------------------------------+------------------+
 | Apache 2.4     | ``apache24.yml-example-vhost`` | ``apache24.yml`` |
 +----------------+--------------------------------+------------------+
 | Nginx stable   | ``nginx.yml-example-vhost``    | ``nginx.yml``    |
@@ -52,14 +50,6 @@ filename.
 .. note::
    If you simply copy the files to their corresponding template file name, nothing will change
    as those templates reflect the same values the web servers are using.
-
-
-Apache 2.2
-----------
-
-1. Navigate to ``cfg/vhost-gen/`` inside the Devilbox directory
-2. Copy ``apache22.yml-example-vhost`` to ``apache22.yml`` and restart the Devilbox
-3. Whenever you adjust ``apache22.yml``, you need to restart the Devilbox
 
 
 Apache 2.4

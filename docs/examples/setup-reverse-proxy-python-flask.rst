@@ -225,26 +225,24 @@ inside the project directory.
 6.2 Copy vhost-gen templates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now we can copy and adjust the vhost-gen reverse proxy files for Apache 2.2, Apache 2.4 and Nginx.
+Now we can copy and adjust the vhost-gen reverse proxy files for Apache 2.4 and Nginx.
 
 
 The reverse vhost-gen templates are available in ``cfg/vhost-gen``:
 
 .. code-block:: bash
-   :emphasize-lines: 4,6,8
+   :emphasize-lines: 4,6
 
    host> tree -L 1 cfg/vhost-gen/
 
    cfg/vhost-gen/
-   ├── apache22.yml-example-rproxy
-   ├── apache22.yml-example-vhost
    ├── apache24.yml-example-rproxy
    ├── apache24.yml-example-vhost
    ├── nginx.yml-example-rproxy
    ├── nginx.yml-example-vhost
    └── README.md
 
-   0 directories, 7 files
+   0 directories, 5 files
 
 For this example we will copy all ``*-example-rproxy`` files into ``data/www/my-flask/.devilbox/``
 (Inside container: ``/shared/httpd/my-flask/.devilbox``) to ensure this will work with all web servers.
@@ -252,7 +250,6 @@ For this example we will copy all ``*-example-rproxy`` files into ``data/www/my-
 .. code-block:: bash
 
    host> cd /path/to/devilbox
-   host> cp cfg/vhost-gen/apache22.yml-example-rproxy data/www/my-flask/.devilbox/apache22.yml
    host> cp cfg/vhost-gen/apache24.yml-example-rproxy data/www/my-flask/.devilbox/apache24.yml
    host> cp cfg/vhost-gen/nginx.yml-example-rproxy data/www/my-flask/.devilbox/nginx.yml
 
@@ -265,45 +262,7 @@ Our current example however uses port ``3000`` and backend IP ``172.16.238.250``
 in the Flask docker compose override file), so we must change that accordingly for all three
 templates.
 
-6.3.1 Adjust Apache 2.2 template
-""""""""""""""""""""""""""""""""
-
-Open the ``apache22.yml`` vhost-gen template in your project:
-
-.. code-block:: bash
-
-   host> cd /path/to/devilbox
-   host> vi data/www/my-flask/.devilbox/apache22.yml
-
-
-Find the two lines with ``ProxyPass`` and ``ProxyPassReverse`` and change the port from ``8000``
-to ``3000`` as well as the backend server from ``php`` to ``172.16.238.250``.
-
-.. code-block:: yaml
-   :caption: data/www/my-flask/.devilbox/apache22.yml
-   :emphasize-lines: 16,17
-
-   # ... more lines above ... #
-
-   ###
-   ### Basic vHost skeleton
-   ###
-   vhost: |
-     <VirtualHost __DEFAULT_VHOST__:__PORT__>
-         ServerName   __VHOST_NAME__
-
-         CustomLog  "__ACCESS_LOG__" combined
-         ErrorLog   "__ERROR_LOG__"
-
-         # Reverse Proxy definition (Ensure to adjust the port, currently '8000')
-         ProxyRequests On
-         ProxyPreserveHost On
-         ProxyPass / http://172.16.238.250:3000/
-         ProxyPassReverse / http://172.16.238.250:3000/
-
-   # ... more lines below ... #
-
-6.3.2 Adjust Apache 2.4 template
+6.3.1 Adjust Apache 2.4 template
 """"""""""""""""""""""""""""""""
 
 Open the ``apache24.yml`` vhost-gen template in your project:
@@ -341,7 +300,7 @@ to ``3000``
 
    # ... more lines below ... #
 
-6.3.3 Adjust Nginx template
+6.3.2 Adjust Nginx template
 """""""""""""""""""""""""""
 
 Open the ``nginx.yml`` vhost-gen template in your project:

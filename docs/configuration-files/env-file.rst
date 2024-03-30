@@ -557,24 +557,17 @@ PHP_SERVER
 
 This variable choses your desired PHP-FPM version to be started.
 
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
-| Name                    | Allowed values                                                                                                                                                                                                                                                                                   | Default value   |
-+=========================+==================================================================================================================================================================================================================================================================================================+=================+
-| ``PHP_SERVER``          | ``php-fpm-5.2`` |br| ``php-fpm-5.3`` |br| ``php-fpm-5.4`` |br| ``php-fpm-5.5`` |br| ``php-fpm-5.6`` |br| ``php-fpm-7.0`` |br| ``php-fpm-7.1`` |br| ``php-fpm-7.2`` |br| ``php-fpm-7.3`` |br| ``php-fpm-7.4`` |br| ``php-fpm-8.0`` |br| ``php-fpm-8.1`` |br| ``php-fpm-8.2`` |br| ``php-fpm-8.2`` | ``php-fpm-8.1`` |
-+-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
-
-.. important::
-   **PHP 5.2** is available to use, but it is not officially supported. The Devilbox intranet does
-   not work with this version as PHP 5.2 does not support namespaces. Furthermore PHP 5.2 does only
-   work with Apache 2.4, Nginx stable and Nginx mainline. It does not work with Apache 2.2.
-   **Use at your own risk.**
-
++-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| Name                    | Allowed values                                                                                                                                                                                               | Default value   |
++=========================+==============================================================================================================================================================================================================+=================+
+| ``PHP_SERVER``          | ``php-fpm-5.6`` |br| ``php-fpm-7.0`` |br| ``php-fpm-7.1`` |br| ``php-fpm-7.2`` |br| ``php-fpm-7.3`` |br| ``php-fpm-7.4`` |br| ``php-fpm-8.0`` |br| ``php-fpm-8.1`` |br| ``php-fpm-8.2`` |br| ``php-fpm-8.3`` | ``php-fpm-8.1`` |
++-------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 All values are already available in the ``.env`` file and just need to be commented or uncommented. If multiple values are uncommented, the last uncommented variable one takes precedences:
 
 .. code-block:: bash
    :caption: .env
-   :emphasize-lines: 14
+   :emphasize-lines: 10
 
    host> grep PHP_SERVER .env
 
@@ -597,21 +590,20 @@ HTTPD_SERVER
 
 This variable choses your desired web server version to be started.
 
-+-------------------------+----------------------------------------------------------------------------------+------------------+
-| Name                    | Allowed values                                                                   | Default value    |
-+=========================+==================================================================================+==================+
-| ``HTTPD_SERVER``        | ``apache-2.2`` |br| ``apache-2.4`` |br| ``nginx-stable`` |br| ``nginx-mainline`` | ``nginx-stable`` |
-+-------------------------+----------------------------------------------------------------------------------+------------------+
++-------------------------+--------------------------------------------------------------+------------------+
+| Name                    | Allowed values                                               | Default value    |
++=========================+==============================================================+==================+
+| ``HTTPD_SERVER``        | ``apache-2.4`` |br| ``nginx-stable`` |br| ``nginx-mainline`` | ``nginx-stable`` |
++-------------------------+--------------------------------------------------------------+------------------+
 
 All values are already available in the ``.env`` file and just need to be commented or uncommented. If multiple values are uncommented, the last uncommented variable one takes precedences:
 
 .. code-block:: bash
    :caption: .env
-   :emphasize-lines: 5
+   :emphasize-lines: 4
 
    host> grep HTTPD_SERVER .env
 
-   #HTTPD_SERVER=apache-2.2
    #HTTPD_SERVER=apache-2.4
    HTTPD_SERVER=nginx-stable
    #HTTPD_SERVER=nginx-mainline
@@ -1477,17 +1469,16 @@ Let's have a look how the directory is actually built up:
    # template directory inside your project directory
    host> ls -l data/www/my-first-project/htdocs/.devilbox
    total 4
-   -rw-r--r-- 1 cytopia cytopia 87 Mar 12 23:05 apache22.yml
    -rw-r--r-- 1 cytopia cytopia 87 Mar 12 23:05 apache24.yml
    -rw-r--r-- 1 cytopia cytopia 87 Mar 12 23:05 nginx.yml
 
-The three files ``apache22.yml``, ``apache24.yml`` and ``nginx.yml`` let you customize your web
+The three files ``apache24.yml`` and ``nginx.yml`` let you customize your web
 servers virtual host to anything from adding rewrite rules, overwriting directory index to even
 changing the server name or adding locations to other assets.
 
 .. seealso::
    The whole process is based on a project called |ext_lnk_project_vhost_gen|.
-   A virtual host generator for Apache 2.2, Apache 2.4 and any Nginx version.
+   A virtual host generator for Apache 2.4 and any Nginx version.
 
 .. seealso::
    **Customize your virtual host**

@@ -170,13 +170,12 @@ once the Devilbox starts.
 To change this, simply uncomment your version of choice and save this file. Do not forget to comment
 (disable) any other version.
 
-In order to enable Apache 2.2, you would change the ``.env`` file like this:
+In order to enable Apache 2.4, you would change the ``.env`` file like this:
 
 .. code-block:: bash
    :caption: .env
    :emphasize-lines: 1
 
-   HTTPD_SERVER=apache-2.2
    #HTTPD_SERVER=apache-2.4
    #HTTPD_SERVER=nginx-stable
    #HTTPD_SERVER=nginx-mainline

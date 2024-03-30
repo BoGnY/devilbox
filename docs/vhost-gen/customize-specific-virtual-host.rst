@@ -18,7 +18,7 @@ vhost-gen
 What is vhost-gen
 -----------------
 
-``vhost-gen`` is a python script which is able to dynamically generate Apache 2.2, Apache 2.4 and
+``vhost-gen`` is a python script which is able to dynamically generate Apache 2.4 and
 Nginx virtual host or reverse proxy configuration files.
 
 It is intended to be used by other means of automation such as change of directories or change of
@@ -123,8 +123,7 @@ Then you can copy the templates.
    host> cp cfg/vhost-gen/*.yml-example-* ./data/www/project-1/.devilbox
 
 .. note::
-   You actually only need to copy the template of your chosen webserver (either Apache 2.2,
-   Apache 2.4 or Nginx), however it is good practice to copy all templates and also adjust
+   You actually only need to copy the template of your chosen webserver (Apache 2.4 or Nginx), however it is good practice to copy all templates and also adjust
    all templates synchronously. This allows you to change web server versions and still
    keep your virtual host settings.
 
@@ -133,7 +132,6 @@ Then you can copy the templates.
 
 At this stage you can start adjusting the template. Either do that for the webserver version you
 have enabled via :ref:`env_httpd_server`:
-``/home/user/devilbox/data/www/project-1/.devilbox/apache22.yml``.
 ``/home/user/devilbox/data/www/project-1/.devilbox/apache24.yml``,
 ``/home/user/devilbox/data/www/project-1/.devilbox/nginx.yml`` or do it for all of them
 synchronously.
@@ -158,8 +156,6 @@ needs to be in place for what webserver version.
 +----------------+------------------+
 | Webserver      | Template         |
 +================+==================+
-| Apache 2.2     | ``apache22.yml`` |
-+----------------+------------------+
 | Apache 2.4     | ``apache24.yml`` |
 +----------------+------------------+
 | Nginx stable   | ``nginx.yml``    |
@@ -169,7 +165,7 @@ needs to be in place for what webserver version.
 
 .. note::
    Nginx stable and mainline share the same template as their syntax has no special
-   differences, whereas Apache 2.2 and Apache 2.4 have slight differences in syntax and therefore
+   differences, whereas Apache 2.4 have slight differences in syntax and therefore
    require two different templates.
 
 
@@ -186,7 +182,7 @@ Ensure yaml files are valid
 
 
 .. code-block:: bash
-   :emphasize-lines: 13-16
+   :emphasize-lines: 10-13
 
    # Navigate to the Devilbox directory
    host> cd /home/user/devilbox
@@ -196,9 +192,6 @@ Ensure yaml files are valid
 
    # Go to your project's template directory
    devilbox@php-7.0.19 in /shared/httpd $ cd project-1/.devilbox
-
-   # Check the syntax of apache22.yml
-   devilbox@php-7.0.19 in /shared/httpd/project-1/.devilbox $ yamllint apache22.yml
 
    108:81    error    line too long (90 > 80 characters)  (line-length)
    139:81    error    line too long (100 > 80 characters)  (line-length)
@@ -276,7 +269,7 @@ By default the ``vhost:`` section has variables from global scope, from the ``vh
 section and from the ``features:`` section.
 
 You can also fully hard-code your webserver configuration without any variables. This way you
-can specify a fully self-brewed webserver configuration. An example for Apache 2.2 could
+can specify a fully self-brewed webserver configuration. An example for Apache 2.4 could
 look like this:
 
 .. code-block:: yaml

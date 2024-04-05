@@ -70,7 +70,7 @@ class Php extends BaseClass implements BaseInterface
 		$output = loadClass('Helper')->exec('grunt --version 2>/dev/null', $output);
 		return loadClass('Helper')->egrep('/[0-9.]+/', $output);
 	}
-	public function getGulpVersion()
+	public function getGulpCliVersion()
 	{
 		$output = loadClass('Helper')->exec('gulp --version --no-color 2>/dev/null | head -1', $output);
 		return loadClass('Helper')->egrep('/[0-9.]+/', $output);

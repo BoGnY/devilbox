@@ -95,12 +95,17 @@
 							<tr>
 								<td>phpPgAdmin</td>
 								<td>GPL 2.0</td>
-								<td><i class="fa fa-github-alt" aria-hidden="true"></i> <a target="_blank" href="https://github.com/phppgadmin/phppgadmin">phppgadmin/phppgadmin</a></td>
+								<td><i class="fa fa-github-alt" aria-hidden="true"></i> <a target="_blank" href="https://github.com/ReimuHakurei/phpPgAdmin">ReimuHakurei/phpPgAdmin</a></td>
 							</tr>
 							<tr>
 								<td>PHPRedMin</td>
 								<td>BSD 3-Clause License</td>
 								<td><i class="fa fa-github-alt" aria-hidden="true"></i> <a target="_blank" href="https://github.com/sasanrose/phpredmin">sasanrose/phpredmin</a></td>
+							</tr>
+							<tr>
+								<td>phpCacheAdmin</td>
+								<td>MIT</td>
+								<td><i class="fa fa-github-alt" aria-hidden="true"></i> <a target="_blank" href="https://github.com/RobiNN1/phpCacheAdmin">RobiNN1/phpCacheAdmin</a></td>
 							</tr>
 						</tbody>
 					</table>

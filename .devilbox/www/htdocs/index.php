@@ -348,10 +348,10 @@ $HEALTH_PERCENT = 100 - ceil(100 * $HEALTH_FAILS / $HEALTH_TOTAL);
 										<th style="width: 50%;">Angular Cli</th>
 										<td id="app_angular_cli"></td>
 									</tr>
-									<tr>
-										<th>AsgardCMS Installer</th>
-										<td id="app_asgardcms_installer"></td>
-									</tr>
+<!--									<tr>-->
+<!--										<th>AsgardCMS Installer</th>-->
+<!--										<td id="app_asgardcms_installer"></td>-->
+<!--									</tr>-->
 									<tr>
 										<th>Codeception</th>
 										<td id="app_codeception"></td>
@@ -373,17 +373,17 @@ $HEALTH_PERCENT = 100 - ceil(100 * $HEALTH_FAILS / $HEALTH_TOTAL);
 										<td id="app_grunt_cli"></td>
 									</tr>
 									<tr>
-										<th>Gulp</th>
-										<td id="app_gulp"></td>
+										<th>Gulp Cli</th>
+										<td id="app_gulp_cli"></td>
 									</tr>
 									<tr>
 										<th>Laravel Installer</th>
 										<td id="app_laravel_installer"></td>
 									</tr>
-									<tr>
-										<th>Laravel Lumen</th>
-										<td id="app_laravel_lumen"></td>
-									</tr>
+<!--									<tr>-->
+<!--										<th>Laravel Lumen</th>-->
+<!--										<td id="app_laravel_lumen"></td>-->
+<!--									</tr>-->
 									<tr>
 										<th>Mupdf Tools</th>
 										<td id="app_mupdf_tools"></td>
@@ -954,15 +954,15 @@ $HEALTH_PERCENT = 100 - ceil(100 * $HEALTH_FAILS / $HEALTH_TOTAL);
 				xhttp.send();
 			}
 			updateVersions('angular_cli');
-			updateVersions('asgardcms_installer');
+			// updateVersions('asgardcms_installer');
 			updateVersions('codeception');
 			updateVersions('composer');
 			updateVersions('deployer');
 			updateVersions('git');
 			updateVersions('grunt_cli');
-			updateVersions('gulp');
+			updateVersions('gulp_cli');
 			updateVersions('laravel_installer');
-			updateVersions('laravel_lumen');
+			// updateVersions('laravel_lumen');
 			updateVersions('mds');
 			updateVersions('mupdf_tools');
 			updateVersions('node');

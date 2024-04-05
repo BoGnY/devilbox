@@ -442,10 +442,10 @@ HTML;
 						}
 					}
 					if ($el['path'] === '__ADMINER__') {
-						if (version_compare(loadClass('Php')->getVersion(), '8.0', '<')){
+						if (version_compare(loadClass('Php')->getVersion(), '7.0', '<')){
 							$el['path'] = '/vendor/adminer-4.8.1-en.php';
 						} else {
-							$el['path'] = '/vendor/adminer-4.8.3.php';
+							$el['path'] = '/vendor/adminer-4.8.3-en.php';
 						}
 					}
 					if ($el['path'] === '__OPCACHE__') {

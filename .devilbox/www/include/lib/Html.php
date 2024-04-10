@@ -426,7 +426,7 @@ HTML;
 
 					// Replace
 					if ($el['path'] === '__PHPMYADMIN__') {
-						if (version_compare(loadClass('Php')->getVersion(), '7.1', '<')) {
+						if (version_compare(loadClass('Php')->getVersion(), '7.3', '<')) {
 							$el['path'] = '/vendor/phpmyadmin-4.9.11/index.php';
 						} else {
 							$el['path'] = '/vendor/phpmyadmin-5.2.1/index.php';

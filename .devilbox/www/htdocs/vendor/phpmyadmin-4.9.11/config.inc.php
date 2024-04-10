@@ -13,8 +13,8 @@ error_reporting(0);
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
-// $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
  */
+// $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 $cfg['TempDir'] = '/tmp';
 $cfg['CheckConfigurationPermissions'] = false;
 $cfg['blowfish_secret'] = 'a;guurOrep[[hoge7p[jgde7reouHoy5590hjgffuJ676FGd434&%*09UJHogfT%$#F64';
@@ -40,6 +40,8 @@ $cfg['Servers'][$i]['host'] = 'mysql';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = true;
+
+$cfg['SendErrorReports'] = 'never';
 
 /**
  * phpMyAdmin configuration storage settings.
@@ -155,7 +157,7 @@ $cfg['SaveDir'] = '';
  * ('ask' | 'always' | 'never')
  * default = 'ask'
  */
-$cfg['SendErrorReports'] = 'never';
+//$cfg['SendErrorReports'] = 'always';
 
 /**
  * 'URLQueryEncryption' defines whether phpMyAdmin will encrypt sensitive data from the URL query string.

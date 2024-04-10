@@ -25,6 +25,9 @@ echo
 # Pre-check
 # -------------------------------------------------------------------------------------------------
 
+PHP_OLD_GIT_VERSIONS=("5.6" "7.0" "7.1" "7.2")
+PHP_VERSION="$( get_php_version "${DVLBOX_PATH}" )"
+
 if [ "${#}" -ne "1" ]; then
 	>&2 echo "Error, requires one argument: <TEST_DIR>"
 	exit 1
@@ -55,6 +58,9 @@ fi
 #https://github.blog/2023-01-20-sunsetting-subversion-support/
 CLONE_PATH="/shared/httpd/${VHOST}/htdocs"
 GIT_CLONE_CMD="git clone --depth=1 --single-branch --branch=${PHP_FPM_GIT_SLUG} ${TEST_REPO} ${CLONE_PATH} && cd ${CLONE_PATH} && git sparse-checkout set --no-cone ${TEST_PATH}"
+if [[ ${PHP_OLD_GIT_VERSIONS[*]} =~ ${PHP_VERSION} ]]; then
+	GIT_CLONE_CMD="git clone --depth=1 --single-branch --branch=${PHP_FPM_GIT_SLUG} ${TEST_REPO} ${CLONE_PATH}/tmp && cp -r ${CLONE_PATH}/tmp/${TEST_PATH} ${CLONE_PATH} && rm -rf ${CLONE_PATH}/tmp"
+fi
 
 # Cleanup and fetch data
 run "docker compose exec -T --user devilbox php rm -rf /shared/httpd/${VHOST} || true" "${RETRIES}" "${DVLBOX_PATH}"

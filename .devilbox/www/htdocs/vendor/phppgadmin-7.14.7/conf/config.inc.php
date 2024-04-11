@@ -110,6 +110,9 @@
 	// turn off secure sessions.  Versions of PHP below 7.3 do not have access
 	// to this feature and will be vulnerable to CSRF attacks.
 	$conf['extra_session_security'] = true;
+    if (version_compare(phpversion(), '7.3', '<')) {
+        $conf['extra_session_security'] = false;  // devilbox edit for php 7.2
+    }
 
 	// AutoComplete uses AJAX interaction to list foreign key values
 	// on insert fields. It currently only works on single column

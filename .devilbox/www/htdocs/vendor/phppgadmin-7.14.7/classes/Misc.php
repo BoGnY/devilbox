@@ -545,7 +545,8 @@
 							}
 						});
 
-				EOL;
+EOL;
+                // devilbox edit for php 7.2 (Heredoc ending label)
 				if (!$frameset) echo <<<EOL
 
 						if ("{$_SERVER['REQUEST_METHOD']}" === "GET" && (window.self === window.top) && (!window.opener)) {
@@ -562,15 +563,15 @@
 						});
 
 
-				EOL;
-
+EOL;
+                // devilbox edit for php 7.2 (Heredoc ending label)
 				echo <<<EOL
 					</script>
 
 					<title>{$_formatTitle}</title>
 
-				EOL;
-
+EOL;
+                // devilbox edit for php 7.2 (Heredoc ending label)
 
 				if ($script) echo "{$script}\n";
 

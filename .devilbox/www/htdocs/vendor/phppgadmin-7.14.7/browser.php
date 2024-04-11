@@ -20,7 +20,8 @@
 		<style type="text/css">
 			.webfx-tree-children { background-image: url("{$misc->icon('I')}"); }
 		</style>
-	EOL);
+EOL
+    ); // devilbox edit for php 7.2 (Heredoc ending label)
 
 	$misc->printBody('browser');
 ?>

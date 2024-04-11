@@ -53,7 +53,7 @@ PHP_FPM_GIT_SLUG="$( \
 )"
 
 if [ -z "${PHP_FPM_GIT_SLUG}" ]; then
-	PHP_FPM_GIT_SLUG="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
+	PHP_FPM_GIT_SLUG="$( run "git ls-remote --symref ${TEST_REPO} | head -1 | cut -f1 | sed 's!^ref: refs/heads/!!'" "${RETRIES}" )";
 fi
 #https://github.blog/2023-01-20-sunsetting-subversion-support/
 CLONE_PATH="/shared/httpd/${VHOST}/htdocs"

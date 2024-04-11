@@ -14,13 +14,14 @@ DVLBOX_PATH="$( cd "${SCRIPT_PATH}/../.." && pwd -P )"
 
 RETRIES=10
 
+TEST_REPO="https://github.com/john-ea/docker-php-fpm"
 
 # -------------------------------------------------------------------------------------------------
 # FUNCTIONS
 # -------------------------------------------------------------------------------------------------
 PHP_TAG="$( grep 'johnea/php' "${DVLBOX_PATH}/docker-compose.yml" | sed -E 's/^.*-work[-]?//g')"
 if [ -z "${PHP_TAG}" ]; then
-	PHP_TAG="$( run "curl -sS 'https://api.github.com/repos/john-ea/docker-php-fpm' | grep -o '\"default_branch\": \"[^\"]*' | grep -o '[^\"]*$' | head -1" "${RETRIES}" )";
+	PHP_TAG="$( run "git ls-remote --symref ${TEST_REPO} | head -1 | cut -f1 | sed 's!^ref: refs/heads/!!'" "${RETRIES}" )";
 fi
 PHP_TOOLS="$( run "curl -sS 'https://raw.githubusercontent.com/john-ea/docker-php-fpm/${PHP_TAG}/doc/available-tools.md'" "${RETRIES}" )";
 

@@ -586,7 +586,7 @@ Every single attachable container comes with many different versions. In order t
       <td></td>
       <td></td>
       <td><a target="_blank" title="PHP 8.1"          href="https://github.com/john-ea/docker-php-fpm">8.1</a></td>
-      <td></td>
+      <td><a target="_blank" title="MySQL 8.4"        href="https://github.com/john-ea/docker-mysql">8.4</a></td>
       <td><a target="_blank" title="MariaDB 10.10"     href="https://github.com/john-ea/docker-mysql">10.10</a></td>
       <td></td>
       <td><a target="_blank" title="PgSQL 12"         href="https://github.com/docker-library/postgres">12</a></td>
@@ -679,6 +679,7 @@ Additionally to the default stack, there are a variety of other services that ca
    <th>Solr</th>
    <th>HAProxy</th>
    <th>Varnish</th>
+   <th>Buggregator</th>
   </tr>
  </thead>
  <tbody>
@@ -687,12 +688,13 @@ Additionally to the default stack, there are a variety of other services that ca
    <td><a target="_blank" title="Blackfire 1.8"    href="https://github.com/blackfireio/docker">1.8</a></td>
    <td><a target="_blank" title="ELK stack"        href="https://www.docker.elastic.co">5.x.y</a></td>
    <td><a target="_blank" title="MailHog v1.0.0"   href="https://github.com/mailhog/MailHog">v1.0.0</a></td>
-   <td><a target="_blank" title="Mailpit v1.x"   href="https://github.com/axllent/mailpit">v1.x</a></td>
+   <td><a target="_blank" title="Mailpit v1.x"     href="https://github.com/axllent/mailpit">v1.x</a></td>
    <td><a target="_blank" title="Ngrok 2.x"        href="https://github.com/devilbox/docker-ngrok">2.x</a></td>
    <td><a target="_blank" title="RabbitMQ 3.6"     href="https://github.com/rabbitmq/rabbitmq-server">3.6</a></td>
    <td><a target="_blank" title="Solr 5"           href="https://github.com/apache/lucene-solr">5</a></td>
    <td><a target="_blank" title="HAProxy 1.x"      href="https://github.com/devilbox/docker-haproxy">1.x</a></td>
    <td><a target="_blank" title="Varnish 4"        href="https://github.com/devilbox/docker-varnish">4</a></td>
+   <td><a target="_blank" title="Buggregator v1.x" href="https://github.com/buggregator/server">v1.x</a></td>
   </tr>
   <tr>
    <td>...</td>
@@ -705,6 +707,7 @@ Additionally to the default stack, there are a variety of other services that ca
    <td><a target="_blank" title="Solr 6"           href="https://github.com/apache/lucene-solr">6</a></td>
    <td></td>
    <td><a target="_blank" title="Varnish 5"        href="https://github.com/devilbox/docker-varnish">5</a></td>
+   <td><a target="_blank" title="Buggregator latest" href="https://github.com/buggregator/server">latest</a></td>
   </tr>
   <tr>
    <td><a target="_blank" title="Python 3.7   "    href="https://github.com/devilbox/docker-python-flask">3.7</a></td>
@@ -717,6 +720,7 @@ Additionally to the default stack, there are a variety of other services that ca
    <td><a target="_blank" title="Solr 7"           href="https://github.com/apache/lucene-solr">7</a></td>
    <td></td>
    <td><a target="_blank" title="Varnish 6"        href="https://github.com/devilbox/docker-varnish">6</a></td>
+   <td></td>
   </tr>
   <tr>
    <td><a target="_blank" title="Python 3.8   "    href="https://github.com/devilbox/docker-python-flask">3.8</a></td>
@@ -729,6 +733,7 @@ Additionally to the default stack, there are a variety of other services that ca
    <td><a target="_blank" title="Solr latest"      href="https://github.com/apache/lucene-solr">latest</a></td>
    <td></td>
    <td><a target="_blank" title="Varnish latest"   href="https://github.com/devilbox/docker-varnish">latest</a></td>
+   <td></td>
   </tr>
  </tbody>
 </table>

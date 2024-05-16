@@ -345,7 +345,7 @@ services:
   # MySQL Database
   # ------------------------------------------------------------
   mysql:
-    image: johnea/mysql:${MYSQL_SERVER}-0.22
+    image: johnea/mysql:${MYSQL_SERVER}-0.23
     hostname: mysql
 
     environment:
@@ -522,6 +522,7 @@ volumes:
   devilbox-mysql-8.1:
   devilbox-mysql-8.2:
   devilbox-mysql-8.3:
+  devilbox-mysql-8.4:
   devilbox-mariadb-5.5:
   devilbox-mariadb-10.0:
   devilbox-mariadb-10.1:

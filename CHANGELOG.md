@@ -6,6 +6,51 @@ Make sure to have a look at [UPDATING.md](https://github.com/cytopia/devilbox/bl
 ## Unreleased
 
 
+## Release v3.0.0-beta-0.6 (2024-05-16)
+
+### Fixed
+- Added missing js/dist for phpmyadmin (https://github.com/john-ea/devilbox/pull/6)
+- Added missing files for phppgadmin
+
+### Added
+- Added MySQL 8.4
+
+### Changed
+- Updated mysql images
+
+
+## Release v3.0.0-beta-0.5 (2024-04-18)
+
+### Added
+- Added PHP 8.3
+- Added MySQL 8.1 - 8.3
+- Added MariaDB 10.11 - 11.3
+- Added PGSQL 16
+- Added Redis 7.2
+- Added MongoDB 6.0 and 7.0
+- Added Adminer 4.8.4
+- Added phpCacheAdmin 1.6.2
+- Added OPcache GUI 3.5.4
+- New Docker Compose Override file `docker-compose.override.yml-buggregator` (Buggregator).
+- New Docker Compose Override file `docker-compose.override.yml-mailpit` (Mailpit).
+
+### Changed
+- Updated httpd images
+- Updated php-fpm images
+- Updated mysql images
+- Updated bind images
+- Updated phpMyAdmin from 5.1.3 to 5.2.1
+- Updated phpMyAdmin from 4.9.7 to 4.9.11
+- Updated phpPgAdmin from 7.13.0 to 7.14.7
+- Updated Opcache Control Panel from 0.1.7 to 0.2.0
+
+### Removed
+- phpMyAdmin 4.0
+- Adminer 4.6.3
+- Apache 2.2
+- PHP 5.2 - 5.5
+
+
 ## Release v3.0.0-beta-0.4 (2022-01-30)
 
 ### Fixed
